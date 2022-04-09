@@ -16,8 +16,10 @@ for line in Lines:
     # split the line into words
     k,v = line.split('\t',1)
     x,y,matrixname,matrixvalue = eval(v)
-    # À compléter
+    # create a key value data for reduce
+    # key will be (a,b): a is the line the the value should be used , b is the column the the value should be used 
     if matrixname =="A":
+     # value is used n times so it needs to be duplicated n times 
      for i in range(n):
       print ("(%s,%s)\t%s\t%s"%(x,i,y,matrixvalue))
     else:
