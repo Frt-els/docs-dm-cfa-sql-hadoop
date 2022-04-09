@@ -27,13 +27,17 @@ for line in Lines:
     line = line.strip()
     # split the line into words
     key,key2,value = line.split('\t', 2)
-    # À compléter ...
+    # create a dictionary of lists ( list of key value elements)
     d[key].append((key2,int(value))) 
+    # sort the list by key2 in order to have successive elements to combine
     d[key].sort(key = lambda x: x[0]) 
+
 for cle, valeur in d.items():
     cumul=0
+    # combine elements two by two and cumulate them
     for i in range((len(valeur)//2)):
         cumul+=valeur[2*i][1]*valeur[2*i+1][1]
+    # print elements to the file
     print ("%s\t%s"%(cle,cumul))      
 file1.close()
 file2.close()    
